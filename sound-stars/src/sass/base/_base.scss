@@ -1,0 +1,353 @@
+body {
+    font-family: $font-primary;
+    font-size: $body-font-size;
+    
+    @include mq($max-width: $md) {
+        font-size: $body-font-size * 0.9;
+    }
+    
+    @include mq($max-width: $ml) {
+        font-size: $body-font-size * 0.6;
+    }
+
+    .page-content {
+        min-height: 90vh;
+    }
+}
+
+a {
+    color: $color-link;
+    
+    &:visited { color: desaturate($color-link, 30%); }
+    &:hover   { color: saturate($color-link, 30%); }
+    &:active  { color: saturate($color-link, 50%); }
+}
+
+// Margins
+.m-auto { margin: auto; }
+.m-0 { margin: 0; }
+.m-1 { margin: 1rem; }
+.m-2 { margin: 2rem; }
+
+.mt-auto { margin-top: auto; }
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+
+.mb-auto { margin-bottom: auto; }
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+
+.ml-auto { margin-left: auto; }
+.ml-0 { margin-left: 0; }
+.ml-1 { margin-left: 1rem; }
+.ml-2 { margin-left: 2rem; }
+
+.mr-auto { margin-right: auto; }
+.mr-0 { margin-right: 0; }
+.mr-1 { margin-right: 1rem; }
+.mr-2 { margin-right: 2rem; }
+
+// Paddings
+.p-0 { padding: 1rem; }
+.p-1 { padding: 1rem; }
+.p-2 { padding: 2rem; }
+.pt-0 { padding-top: 1rem; }
+.pt-1 { padding-top: 1rem; }
+.pt-2 { padding-top: 2rem; }
+.pb-0 { padding-bottom: 1rem; }
+.pb-1 { padding-bottom: 1rem; }
+.pb-2 { padding-bottom: 2rem; }
+.pl-0 { padding-left: 1rem; }
+.pl-1 { padding-left: 1rem; }
+.pl-2 { padding-left: 2rem; }
+.pr-0 { padding-right: 1rem; }
+.pr-1 { padding-right: 1rem; }
+.pr-2 { padding-right: 2rem; }
+
+// Floats
+.fl-left { float: left; }
+.fl-right { float: right; }
+.fl-none { float: none; }
+
+// BG Colors
+.bg-color-primary { background-color: $color-primary; }
+.bg-color-secondary { background-color: $color-secondary; }
+
+.bg-color-info { background-color: $color-info; }
+.bg-color-success { background-color: $color-success; }
+.bg-color-warning { background-color: $color-warning; }
+.bg-color-danger { background-color: $color-danger; }
+.bg-color-link { background-color: $color-link; }
+
+.bg-color-light { background-color: $color-light; }
+.bg-color-muted { background-color: $color-muted; }
+.bg-color-dark { background-color: $color-dark; }
+
+// Bg Image
+.bg-default {
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.bg-cover {
+    @include background-size( cover );
+}
+
+// Image
+.img-radius { @include border-radius(100%); }
+.img-block { display: block; }
+
+// Block modifiers
+.border-radius {
+    @include border-radius($border-radius);
+}
+
+.tag {
+    display: inline-block;
+    padding: 0.2rem 0.4rem;
+    @include border-radius(3px);
+    
+    + .tag {
+        margin-left: 0.3rem;
+    }
+
+    &.default {
+        color: $color-lighter;
+        background-color: $color-primary;
+    }
+    &.primary {
+        color: $color-lighter;
+        background-color: $color-primary;
+    }
+    &.secondary {
+        color: $color-lighter;
+        background-color: $color-secondary;
+    }
+    &.info {
+        color: $color-light;
+        background-color: $color-info;
+    }
+    &.success {
+        color: $color-light;
+        background-color: $color-success;
+    }
+    &.warning {
+        color: $color-light;
+        background-color: $color-warning;
+    }
+    &.danger {
+        color: $color-light;
+        background-color: $color-danger;
+    }
+    &.link {
+        color: $color-link;
+        background-color: transparent;
+    }
+    &.light {
+        color: $color-dark;
+        background-color: $color-light;
+    }
+    &.muted {
+        color: $color-dark;
+        background-color: $color-muted;
+    }
+    &.dark {
+        color: $color-lighter;
+        background-color: $color-dark;
+    }
+}
+
+.list-inline {
+    margin-bottom: 1rem;
+
+    li {
+        display: inline-block;
+        margin: 0.2rem 0;
+        padding: 0.2rem 0.4rem;
+        @include border-radius(3px);
+        @include transition( background .3s, color .3s );
+        
+        &:nth-child(2) {
+            margin-left: 0.3rem;
+        }
+        
+        + li {
+            margin-right: 0.3rem;
+        }
+    }
+
+    &.default li {
+        color: $color-lighter;
+        background-color: $color-primary;
+        &:hover {
+            background-color: darken( $color-primary, 10% );
+        }
+        a {
+            color: $color-lighter;
+            text-decoration: none;
+        }
+    }
+    &.primary li {
+        color: $color-light;
+        background-color: $color-primary;
+        &:hover {
+            background-color: darken( $color-primary, 10% );
+        }
+        a {
+            color: $color-light;
+            text-decoration: none;
+        }
+    }
+    &.secondary li {
+        color: $color-light;
+        background-color: $color-secondary;
+        &:hover {
+            background-color: darken( $color-secondary, 10% );
+        }
+        a {
+            color: $color-light;
+            text-decoration: none;
+        }
+    }
+    &.info li {
+        color: $color-light;
+        background-color: $color-info;
+        &:hover {
+            background-color: darken( $color-info, 10% );
+        }
+        a {
+            color: $color-light;
+            text-decoration: none;
+        }
+    }
+    &.success li {
+        color: $color-light;
+        background-color: $color-success;
+        &:hover {
+            background-color: darken( $color-success, 10% );
+        }
+        a {
+            color: $color-light;
+            text-decoration: none;
+        }
+    }
+    &.warning li {
+        color: $color-light;
+        background-color: $color-warning;
+        &:hover {
+            background-color: darken( $color-warning, 10% );
+        }
+        a {
+            color: $color-light;
+            text-decoration: none;
+        }
+    }
+    &.danger li {
+        color: $color-light;
+        background-color: $color-danger;
+        &:hover {
+            background-color: darken( $color-danger, 10% );
+        }
+        a {
+            color: $color-light;
+            text-decoration: none;
+        }
+    }
+    &.link li {
+        color: $color-light;
+        background-color: $color-link;
+        &:hover {
+            background-color: darken( $color-link, 10% );
+        }
+        a {
+            color: $color-light;
+            text-decoration: none;
+        }
+    }
+    &.light li {
+        color: $color-dark;
+        background-color: $color-light;
+        &:hover {
+            background-color: darken( $color-light, 10% );
+        }
+        a {
+            color: $color-dark;
+            text-decoration: none;
+        }
+    }
+    &.muted li {
+        color: $color-dark;
+        background-color: $color-muted;
+        &:hover {
+            background-color: darken( $color-muted, 10% );
+        }
+        a {
+            color: $color-dark;
+            text-decoration: none;
+        }
+    }
+    &.dark li {
+        color: $color-light;
+        background-color: $color-dark;
+        &:hover {
+            background-color: darken( $color-dark, 10% );
+        }
+        a {
+            color: $color-light;
+            text-decoration: none;
+        }
+    }
+}
+
+.collection {
+    margin: 0;
+    padding: 0;
+    border: 2px solid darken( $color-light, 5% );
+    overflow: hidden;
+    @include border-radius();
+
+    li {
+        padding: 0.5rem 1rem;
+        border-bottom: 2px solid darken( $color-light, 5% );
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+
+    &.with-links {
+        li {
+            padding: 0;
+
+            a {
+                width: 100%;
+                display: block;
+                padding: 0.8rem 1rem;
+                background: $color-light;
+                font-size: 0.85rem;
+                color: $color-link;
+                text-decoration: none;
+
+                @include transition( color .3s, background .3s );
+
+                &:hover,
+                &:focus {
+                    background-color: darken( $color-light, 5% );
+                }
+            }
+        }
+    }
+}
+
+// Lazyload Image:
+img {    
+    &.ng-lazyload {
+        opacity: 0;
+        @include transition(opacity ease-in .3s);
+        
+        &.ng-lazyloaded {
+            opacity: 1;
+        }
+    }
+}

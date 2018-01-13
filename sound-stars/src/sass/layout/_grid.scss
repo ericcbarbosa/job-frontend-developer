@@ -1,0 +1,79 @@
+.row {
+    @include margin-lr(-1rem);
+    display: flex;  
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: flex-start;
+    margin-bottom: 1rem;
+    
+    + .row {
+        margin-top: 1rem;
+    }
+    
+    
+    .col {
+        flex-basis: 1;
+        flex-grow: 1;
+        flex-direction: column;
+        margin-bottom: 2rem;
+        @include padding-lr(1rem);
+
+        @include gerate-grid('ms', $ms);
+        @include gerate-grid('mm', $mm);
+        @include gerate-grid('ml', $ml);
+        @include gerate-grid('xs', $xs);
+        @include gerate-grid('sm', $sm);
+        @include gerate-grid('md', $md);
+        @include gerate-grid('lg', $lg);
+        @include gerate-grid('xl', $xl);
+    }
+}
+
+.content,
+.container {
+    width: 100%;
+    max-width: $max-width;
+    padding: 1rem;
+    @include margin-center();
+}
+
+.footer {
+    margin-top: 2rem;
+}
+
+.header,
+.footer {
+    .content {
+        margin-bottom: 0;
+    }
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-bar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    &.start {
+        align-items: flex-start;
+    }
+}
+
+.flex-col {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.flex-nowrap {
+    flex-wrap: nowrap;
+}
+
+.flex-align-start {
+    align-items: flex-start;
+}
