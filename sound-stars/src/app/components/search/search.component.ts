@@ -15,13 +15,11 @@ export class SearchComponent implements OnInit {
 
   pressKeyHandler(event, query) {
     if ( event.keyCode == 13 || event.key.toLowerCase() === 'enter' ) {
-      console.log(query);
       this.triggerSearch.emit( query );
     }
   }
 
   clickHandler(query) {
-    console.log(query);
     this.triggerSearch.emit( query );
   }
 

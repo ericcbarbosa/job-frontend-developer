@@ -6,8 +6,6 @@ import { Observable } from 'rxjs/Rx';
 import { YoutubeService } from '../../providers/youtube.service';
 
 
-
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -18,9 +16,11 @@ import { YoutubeService } from '../../providers/youtube.service';
 })
 
 export class HomeComponent implements OnInit {
-  loading :boolean = false;
 
+  // Tratamentos
+  loading :boolean = false;
   messages :Array<string> = [];
+  noDescription :string = 'Ops, não temos descrição para este item';
 
   // TicketMaster
   page :object;
@@ -29,32 +29,24 @@ export class HomeComponent implements OnInit {
   // Youtube
   videos :Array<object>;
 
-  noDescription :string = 'Ops, não temos descrição para este item'; 
-
   constructor(
     private _serviceTicketMaster: TicketmasterService,
     private _serviceYoutube: YoutubeService
   ) { }
 
-  teste(str) {
-    console.log('Output OK ' + str);
-  }
-
   ngOnInit() {
-    this.getYoutubeResult('The XX');
+    // this.getYoutubeResult('U2');
   }
 
   pressKeyHandler(event, query) {
     if ( event.keyCode == 13 || event.key.toLowerCase() === 'enter' ) {
-      this.search( query );
+      this.search( query, null );
     }
   }
 
-  search( query ) {
-    console.log('>>> QUERY', query);
-
+  search( query, target ) {
     query = query.trim().toLowerCase();
-  
+
     if ( query === '' ) {
       this.messages.push('Digite o nome de um artista ou banda para buscar');
     }
@@ -69,24 +61,36 @@ export class HomeComponent implements OnInit {
     this.messages = [];
   }
 
-  getYoutubeResult(keyword) {
+  scrollToResult( target ) {
+    let offset = target.offsetTop * 0.9;
+
+    for( let i = 0; i < offset; i++ ) {
+      setTimeout( () => window.scrollTo(0, i), 50 * 1);
+    }
+  }
+
+  getYoutubeResult( keyword ) {
     this.loading = true;
 
-    return this._serviceYoutube.getVideosByKeyword( keyword )
-                              .subscribe(
-                                (response) => {
-                                  this.videos = response.items.map( item => {
-                                    item.snippet.id = item.id.videoId;
-                                    item.snippet.query = keyword;
+    let request = this._serviceYoutube.getVideosByKeyword( keyword );
 
-                                    return item.snippet;
-                                  });
-                                },
-                                (error) => console.error(error),
-                                () => {
-                                  this.loading = false;
-                                }
-                              );
+    return request.subscribe(
+      (response) => {
+        this.videos = response.items.map( item => {
+          item.snippet.id = item.id.videoId;
+          item.snippet.query = keyword;
+
+          return item.snippet;
+        });
+      },
+      (error) => console.error(error),
+      () => {
+        this.loading = false;
+
+        let target = document.getElementById('results');
+        this.scrollToResult(target);
+      }
+    );
   }
 
 }

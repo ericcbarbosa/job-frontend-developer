@@ -1,12 +1,11 @@
 <div class="row page-home">
     <div class="col ms-12">
-        
-        <main-search (triggerSearch)="search($event)"></main-search>
+        <main-search (triggerSearch)="search($event, results)"></main-search>
         <feedback-messages [messages]="messages"></feedback-messages>
     </div>
 </div>
 
-<div class="row">
+<div #results id="results" class="row">
     <div class="col ms-12 xs-6 md-4 flex-strech" *ngFor="let video of videos">
         <card-video [video]="video"></card-video>
     </div>

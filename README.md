@@ -31,4 +31,5 @@ O padrão escolhido para a implementação do mesmo foi o 7-1, que consta nas [G
 
 ## Tomada de Decisões:
 * Nem sempre consigo encontrar informações relevantes sobre o artista, por isso foi preciso implementar a seção do artista na video-detalhe como condicional, assim evitando quebra de layout ou programação.
-* A busca do artista é feita com o dado fornecido no input da home. Talvez seja melhor utilizar o title do video.
+* A busca do artista é feita com o dado fornecido no input da home. Talvez seja melhor utilizar o title do video. Vou analisar e caso tenha necessidade, será a próxima implementação.
+* Pensei em fazer um smooth scroll para que quando o usuário realizasse a busca, a tela fluísse até os cards de resultado. Para fazer um com easing precisaria adicionar uma dependencia ou investir muito tempo, então por hora vou manter a implementação básica que usa um for com setTimout para simular um easing linear.
