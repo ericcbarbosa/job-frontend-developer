@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-video',
+  selector: 'video-wrapper',
   templateUrl: './video.component.html',
   styleUrls: ['./video.component.scss']
 })
 export class VideoComponent implements OnInit {
 
-  constructor() { }
+  @Input('video-id') videoId :string = '';
+  @Input('video-detail') videoDetail :object;
+
+  constructor() {
+    
+  }
 
   ngOnInit() {
+    
   }
 
 }

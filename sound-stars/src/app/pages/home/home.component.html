@@ -1,19 +1,15 @@
-
-<h1 class="txt-center txt-bold">
-    <i class="fas fa-star txt-color-warning display-block mb-2 animation-wiggle--hover"></i>
-    {{ title }}
-</h1>
-<p class="txt-size-5 txt-center mb-3">{{ subtitle }}</p>
-
-<div class="row">
+<div class="row page-home">
     <div class="col ms-12">
+        
         <div class="search form-field form-field--default form-field--lg form-field--has-button ml-auto mr-auto">
-            <input #search_input type="search" id="search__input" class="display-block txt-center txt-size-5" name="search__input" placeholder="Procurar banda...">
-            <button type="submit" class="btn btn--info" (click)="(search_input.value.length > 0) ? this.getYoutubeResult(search_input.value) : console.log('campo vazio')">
+            <input #q (keypress)="pressKeyHandler($event, q.value)" type="search" id="search__input" class="search__input display-block txt-center txt-size-5" name="search__input" placeholder="Procurar banda...">
+            <button type="submit" class="search__button btn btn--info" (click)="this.search(q.value)">
                 <i *ngIf="!loading" class="fas fa-search animation-wiggle--hover"></i>
                 <i *ngIf="loading" class="fas fa-spinner animation-rotate"></i>
             </button>
         </div>
+
+        <feedback-messages [messages]="messages"></feedback-messages>
     </div>
 </div>
 

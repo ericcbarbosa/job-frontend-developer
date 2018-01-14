@@ -1,0 +1,12 @@
+<p class="txt-size-2 mb-1">Classificação Musical:</p>
+<ul *ngFor="let classification of classifications" class="list-inline list-inline--info">
+  <li *ngIf="classification.subGenre">
+    {{ classification.subGenre.name }}
+  </li>
+  <li *ngIf="classification.genre">
+    {{ classification.genre.name }}
+  </li>
+  <li *ngIf="classification.segment">
+    {{ classification.segment.name }}
+  </li>
+</ul>

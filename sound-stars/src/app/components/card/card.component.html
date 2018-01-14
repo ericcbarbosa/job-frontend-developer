@@ -1,24 +1,33 @@
 <div class="card card--dark">
-  <div class="card__cover">
-      <img class="img-full img-block" src="{{ video.thumbnails.high.url }}" />
-  </div>
-  <div class="card__content">
-      <span class="card__observation">
-          {{ video.publishedAt | date:'dd/MM/yyyy' }}
-      </span>
-      <h3 class="card__title txt-ellipsis-2">
-          <a [routerLink]="['/video', video.id]">
-              {{ video.title }}
-          </a>
-      </h3>
-      <small class="card__author">
-          <a [href]="'https://www.youtube.com/channel/'+video.channelId">{{ video.channelTitle }}</a>
-      </small>
-      <p class="card__description">
-          {{ (video.description) ? video.description : noDescription }}
-      </p>
-      <a [routerLink]="['/video', video.id]" class="btn btn--primary pos-absolute">
-          Detalhes
-      </a>
-  </div>
+    <div class="card__cover">
+        <img class="img-full img-block" src="{{ video.thumbnails.high.url }}" />
+    </div>
+    <div class="card__content">
+        <small class="card__observation card__author fl-right">
+            <a [href]="'https://www.youtube.com/channel/'+video.channelId">
+                <i class="fas fa-user"></i>
+                {{ video.channelTitle }}
+            </a>
+        </small>
+        <span class="card__observation fl-left">
+            <i class="far fa-clock"></i>
+            {{ video.publishedAt | date:'dd/MM/yyyy' }}
+        </span>
+        <h3 class="card__title txt-ellipsis-2">
+            <a [routerLink]="['/video', video.query, video.id]">
+                {{ video.title }}
+            </a>
+        </h3>
+        <p class="card__description">
+            {{ (video.description) ? video.description : noDescription }}
+        </p>
+        <a [href]="'https://www.youtube.com/watch?v='+video.id" target="_blank" class="btn btn--left btn--primary pos-absolute">
+            <i class="fab fa-youtube animation-wiggle--hover"></i>
+            Veja no Youtube
+        </a>
+        <a [routerLink]="['/video', video.query, video.id]" class="btn btn--right btn--primary pos-absolute">
+            <i class="fas fa-play animation-wiggle--hover"></i>
+            Detalhes
+        </a>
+    </div>
 </div>

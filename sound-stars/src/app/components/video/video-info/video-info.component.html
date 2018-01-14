@@ -1,0 +1,14 @@
+<article class="video-info">
+  <h3>{{ video.title }}</h3>
+  <small class="txt-color-muted">{{ video.smallublishedAt | date:'dd/MM/yyyy' }}</small>
+  
+  <p>
+    <a [href]="'https://www.youtube.com/channel/'+video.channelId" target="_blank">{{ video.channelTitle }}</a>
+  </p>
+  <p [innerHTML]="video.description" class="txt-size-2"></p>
+  
+  <h4 class="mb-1">Tags:</h4>
+  <ul class="list-inline list-inline--secondary">
+    <li *ngFor="let tag of video.tags">{{ tag }}</li>
+  </ul>
+</article>

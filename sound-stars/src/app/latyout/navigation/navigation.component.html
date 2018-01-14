@@ -1,3 +1,9 @@
-<p>
-  navigation works!
-</p>
+<div class="main-navigation">
+    <h1 class="main-navigation__title txt-center txt-bold">
+        <a [routerLink]="['/']">
+            <i class="fas fa-star txt-color-warning display-block mb-2 animation-wiggle--hover"></i>
+            {{ title }}
+        </a>
+    </h1>
+    <p class="main-navigation__subtitle txt-size-5 txt-center mb-3">{{ subtitle }}</p>
+</div>

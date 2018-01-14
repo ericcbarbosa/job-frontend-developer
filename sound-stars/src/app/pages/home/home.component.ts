@@ -18,9 +18,9 @@ import { YoutubeService } from '../../providers/youtube.service';
 })
 
 export class HomeComponent implements OnInit {
-  title :string = 'Sound Stars';
-  subtitle :string = 'Uma aplicação feita para os apaixonados por música. Busque pelos seus vídeos favoritos e aprenda mais sobre seus ídolos em um único lugar!';
   loading :boolean = false;
+
+  messages :Array<string> = [];
 
   // TicketMaster
   page :object;
@@ -37,25 +37,30 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getYoutubeResult('Linkin Park');
+    this.getYoutubeResult('The XX');
   }
 
-  getTicketResults(keyword) {
-    this.loading = true;
+  pressKeyHandler(event, query) {
+    if ( event.keyCode == 13 || event.key.toLowerCase() === 'enter' ) {
+      this.search( query );
+    }
+  }
 
-    return this._serviceTicketMaster.getEventsByKeywork( keyword )
-                        .subscribe(
-                          (response) => {
-                            this.page = response.page;
-                            this.events = response._embedded.events;
-                          },
-                          (error) => console.log(error),
-                          () => {
-                            this.loading = false;
-                            console.log('Pages: ', this.page);
-                            console.log('Events: ', this.events);
-                          }
-                        );
+  search( query ) {
+    query = query.trim().toLowerCase();
+  
+    if ( query === '' ) {
+      this.messages.push('Digite o nome de um artista ou banda para buscar');
+    }
+
+    if ( query ) {
+      this.clearMessages();
+      this.getYoutubeResult( query );
+    }
+  }
+
+  clearMessages() {
+    this.messages = [];
   }
 
   getYoutubeResult(keyword) {
@@ -66,6 +71,8 @@ export class HomeComponent implements OnInit {
                                 (response) => {
                                   this.videos = response.items.map( item => {
                                     item.snippet.id = item.id.videoId;
+                                    item.snippet.query = keyword;
+
                                     return item.snippet;
                                   });
                                 },

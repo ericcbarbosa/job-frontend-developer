@@ -1,117 +1,13 @@
-.navbar {
-    border-bottom: 4px solid darken( $color-light, 5% );
-
-    &.fixed {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 10;
+.main-navigation {
+    &__title {
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
     }
-
-    .content {
-        padding: 0.5rem 1rem;
-        @include flex-bar();
-
-        li {
-            display: flex;
-
-            @include mq($max-width: $xs) {
-                display: flex;
-                flex-grow: 1;
-                text-align: center;
-            }
-
-            + li {
-                margin-left: 0.5rem;
-
-                @include mq($max-width: $xs) {
-                    margin-left: 0;
-                }
-            }
-
-            &.logo {
-                width: 100px;
-                padding-right: 1rem;
-                border-right: 2px solid darken( $color-light, 5% );
-
-                @include mq($max-width: $xs) {
-                    width: 100%;
-                    padding-right: 0;
-                    border: none;
-                }
-
-                .nav-link {
-                    max-width: 150px;
-                    padding: 0.2rem;
-                    @include transition( transform ease-in-out .3s )
-                    @include transform( scale(1) );
-
-                    @include mq($max-width: $xs) {
-                        display: inline-block;
-                        margin: auto;
-                        padding: 0 0 1rem;
-                    }
-
-                    &:hover,
-                    &:focus {
-                        border-color: transparent;
-                        background-color: transparent;
-
-                        @include transform( scale(1.05) );
-                    }
-                }
-            }
-
-            .nav-link {
-                font-size: 1rem;
-                text-transform: uppercase;
-                border: 1px solid transparent;
-                @include border-radius(3px);
-
-                @include mq($max-width: $xs) {
-                    width: 100%;
-                }
-
-                &:hover,
-                &:focus {
-                    border-color: darken( $color-light, 6% );
-                    background-color: darken( $color-light, 4% );
-                }                
-            }
-
-            &.active {
-                .nav-link.default {
-                    border-color: darken( $color-light, 6% );
-                    background-color: darken( $color-light, 4% );
-                }
-            }
-
-            &.search {
-                margin-left: auto;
-
-                @include mq($max-width: $xs) {
-                    width: 100%;
-                }
-
-                search-hero {
-                    @include mq($max-width: $xs) {
-                        width: 100%;
-                        margin-top: 1rem;
-                    }
-                    
-                    .search-container {
-                        @include mq($max-width: $xs) {
-                            width: 100%;
-                        }
-                    }
-                }
-
-
-                li + li {
-                    margin-left: 0;
-                }
-            }
+    &__subtitle {
+        @include mq( $max-width: $xs ) {
+            font-size: 1.1rem;
         }
     }
 }

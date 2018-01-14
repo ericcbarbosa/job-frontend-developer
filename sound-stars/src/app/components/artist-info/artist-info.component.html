@@ -1,0 +1,19 @@
+<!-- Header -->
+<div *ngIf="artist.images && artist.name">
+  <artist-header [name]="artist.name" [thumb]="artist.images[0].url"></artist-header>
+</div>
+
+<!-- Classificações -->
+<div *ngIf="artist.classifications">
+  <artist-classification [classifications]="artist.classifications"></artist-classification>
+</div>
+
+<!-- Links Externos -->
+<div *ngIf="artist.externalLinks">
+  <artist-social [externalLinks]="artist.externalLinks"></artist-social>
+</div>
+
+<!-- Imagens -->
+<div *ngIf="artist.images">
+  <artist-media [images]="artist.images"></artist-media>
+</div>

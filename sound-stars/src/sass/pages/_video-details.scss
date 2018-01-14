@@ -1,0 +1,7 @@
+.page-video-detail {
+    @include mq( $max-width: $md) {
+        .video-wrapper {
+            margin-bottom: 0;
+        }
+    }
+}

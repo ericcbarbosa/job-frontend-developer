@@ -28,3 +28,7 @@ O padrão escolhido para a implementação do mesmo foi o 7-1, que consta nas [G
 * pages
 * themes
 * vendors
+
+## Tomada de Decisões:
+* Nem sempre consigo encontrar informações relevantes sobre o artista, por isso foi preciso implementar a seção do artista na video-detalhe como condicional, assim evitando quebra de layout ou programação.
+* A busca do artista é feita com o dado fornecido no input da home. Talvez seja melhor utilizar o title do video.

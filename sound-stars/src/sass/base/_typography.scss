@@ -6,7 +6,7 @@ h1 {
     font-size: 4rem;
 
     @include mq( $max-width: $xs ) {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 }
 h2 { 
@@ -20,7 +20,7 @@ h3 {
     font-size: 2rem;
 
     @include mq( $max-width: $xs ) {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 }
 p { 
@@ -32,13 +32,43 @@ h4, h5, h6 {
     margin-bottom: 1.2rem;
 }
 
-.txt-size-6 { font-size: 2.0rem; }
-.txt-size-5 { font-size: 1.8rem; }
-.txt-size-4 { font-size: 1.5rem; }
-.txt-size-3 { font-size: 1.2rem; }
-.txt-size-2 { font-size: 1.0rem; }
-.txt-size-1 { font-size: 0.8rem; }
-.txt-size-0 { font-size: 0.5rem; }
+.txt-size-6 { 
+    font-size: 2.0rem;
+
+    @include mq( $max-width: $sm ) {
+        font-size: 1.8rem;
+    }
+}
+.txt-size-5 { 
+    font-size: 1.8rem;
+
+    @include mq( $max-width: $sm ) {
+        font-size: 1.5rem;
+    }
+}
+.txt-size-4 { 
+    font-size: 1.5rem;
+
+    @include mq( $max-width: $sm ) {
+        font-size: 1.3rem;
+    }
+}
+.txt-size-3 { 
+    font-size: 1.2rem;
+
+    @include mq( $max-width: $sm ) {
+        font-size: 1.1rem;
+    }
+}
+.txt-size-2 { 
+    font-size: 1.0rem;
+}
+.txt-size-1 { 
+    font-size: 0.8rem;
+}
+.txt-size-0 { 
+    font-size: 0.5rem;
+}
 
 .txt-upper { text-transform: uppercase; }
 .txt-lower { text-transform: lowercase; }

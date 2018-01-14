@@ -1,0 +1,27 @@
+<p class="txt-size-2 mb-1">Redes Sociais:</p>
+<ul class="list-inline list-inline--info">
+  <li *ngIf="externalLinks.facebook">
+    <a href="{{ externalLinks.facebook[0].url }}" target="_blank">
+      <i class="fab fa-facebook-square animation-wiggle--hover"></i>
+      Facebook
+    </a>
+  </li>
+  <li *ngIf="externalLinks.instagram">
+    <a href="{{ externalLinks.instagram[0].url }}" target="_blank">
+      <i class="fab fa-instagram animation-wiggle--hover"></i>
+      Instagram
+    </a>
+  </li>
+  <li *ngIf="externalLinks.twitter">
+    <a href="{{ externalLinks.twitter[0].url }}" target="_blank">
+      <i class="fab fa-twitter-square animation-wiggle--hover"></i>
+      Twitter
+    </a>
+  </li>
+  <li *ngIf="externalLinks.youtube">
+    <a href="{{ externalLinks.youtube[0].url }}" target="_blank">
+      <i class="fab fa-youtube animation-wiggle--hover"></i>
+      Youtube
+    </a>
+  </li>
+</ul>

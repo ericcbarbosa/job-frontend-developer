@@ -1,0 +1,16 @@
+.search {
+    &__input {
+        font-size: 2rem;
+
+        @include mq( $max-width: $xs ) {
+            font-size: 1.4rem;
+        }
+    }
+    &__button {
+        font-size: 2rem;
+
+        @include mq( $max-width: $xs ) {
+            font-size: 1.4rem;
+        }
+    }
+}

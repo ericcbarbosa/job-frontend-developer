@@ -77,6 +77,14 @@
 // Image
 .img-radius { @include border-radius(100%); }
 .img-block { display: block; }
+.img-responsive {
+    width: auto;
+    max-width: 100%;
+}
+.img-cover-center {
+    object-fit: cover;
+    object-position: center;
+}
 
 // Icons
 .fa-star {
@@ -107,6 +115,30 @@
 .display-inline-block {
     display: inline-block;
 }
+
+.embed-responsive {
+    position: relative;
+    display: block;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+
+    iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    &--16by9 {
+        padding-bottom: 56.25%;
+    }
+}
+
+
 .border-radius {
     @include border-radius($border-radius);
 }
@@ -185,7 +217,20 @@
         }
     }
 
-    &.default li {
+    &--has-images {
+        li {
+            width: 25%;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+            object-fit: contain;
+            object-position: center;
+        }
+    }
+
+    &--default li {
         color: $color-lighter;
         background-color: $color-primary;
         &:hover {
@@ -196,7 +241,7 @@
             text-decoration: none;
         }
     }
-    &.primary li {
+    &--primary li {
         color: $color-light;
         background-color: $color-primary;
         &:hover {
@@ -207,7 +252,7 @@
             text-decoration: none;
         }
     }
-    &.secondary li {
+    &--secondary li {
         color: $color-light;
         background-color: $color-secondary;
         &:hover {
@@ -218,7 +263,7 @@
             text-decoration: none;
         }
     }
-    &.info li {
+    &--info li {
         color: $color-light;
         background-color: $color-info;
         &:hover {
@@ -229,7 +274,7 @@
             text-decoration: none;
         }
     }
-    &.success li {
+    &--success li {
         color: $color-light;
         background-color: $color-success;
         &:hover {
@@ -240,7 +285,7 @@
             text-decoration: none;
         }
     }
-    &.warning li {
+    &--warning li {
         color: $color-light;
         background-color: $color-warning;
         &:hover {
@@ -251,7 +296,7 @@
             text-decoration: none;
         }
     }
-    &.danger li {
+    &--danger li {
         color: $color-light;
         background-color: $color-danger;
         &:hover {
@@ -262,7 +307,7 @@
             text-decoration: none;
         }
     }
-    &.link li {
+    &--link li {
         color: $color-light;
         background-color: $color-link;
         &:hover {
@@ -273,7 +318,7 @@
             text-decoration: none;
         }
     }
-    &.light li {
+    &--light li {
         color: $color-dark;
         background-color: $color-light;
         &:hover {
@@ -284,7 +329,7 @@
             text-decoration: none;
         }
     }
-    &.muted li {
+    &--muted li {
         color: $color-dark;
         background-color: $color-muted;
         &:hover {
@@ -295,7 +340,7 @@
             text-decoration: none;
         }
     }
-    &.dark li {
+    &--dark li {
         color: $color-light;
         background-color: $color-dark;
         &:hover {

@@ -8,7 +8,7 @@ import { VideoDetailComponent } from './pages/video-detail/video-detail.componen
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
-  { path: 'video/:id', component: VideoDetailComponent },
+  { path: 'video/:query/:id', component: VideoDetailComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

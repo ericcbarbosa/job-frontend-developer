@@ -37,12 +37,28 @@
     .card__content {
         position: relative;
         padding-bottom: 4rem;
+
+        .btn {
+            &.pos-absolute {
+                @include mq( $max-width: $sm ) {
+                    font-size: 0.7rem;
+                }
+
+                &.btn--left {
+                    left: 15px;
+                }
+                &.btn--right {
+                    right: 15px;
+                }
+            }
+        }
     }
 
     .card__title {
         font-size: 1.5rem;
         height: 60px;
-        margin-top: 0.7rem;
+        width: 100%;
+        margin-top: 2.5rem;
         margin-bottom: 1.5rem;
         @include hover-text( $color-link );
         @include transition( color ease-in .3s );
@@ -82,6 +98,18 @@
         color: lighten( $color-muted, 20% );
         font-size: 0.8rem;
         font-weight: 700;
+        max-width: 45%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+
+        @include mq( $max-width: $sm ) {
+            font-size: 0.7rem;
+        }
+
+        a {
+            text-decoration: none;
+        }
     }
 
     .card__description {

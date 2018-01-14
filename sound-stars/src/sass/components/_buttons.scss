@@ -26,10 +26,20 @@
 
     &.btn--left {
         float: left;
+
+        &.pos-absolute {
+            float: none;
+            left: 0;
+        }
     }
 
     &.btn--right {
         float: right;
+
+        &.pos-absolute {
+            float: none;
+            right: 0;
+        }
     }
 
     &.btn--default {

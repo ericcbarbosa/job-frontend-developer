@@ -1,3 +1,4 @@
-<p>
-  video works!
-</p>
+<div *ngIf="videoId && videoDetail">
+    <video-player [video-id]="videoId"></video-player>
+    <video-info [video]="videoDetail"></video-info>
+</div>
