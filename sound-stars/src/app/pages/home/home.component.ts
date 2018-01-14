@@ -87,8 +87,10 @@ export class HomeComponent implements OnInit {
       () => {
         this.loading = false;
 
+        console.log( 'VIDEOS ->', this.videos );
+
         let target = document.getElementById('results');
-        this.scrollToResult(target);
+        this.scrollToResult( target );
       }
     );
   }

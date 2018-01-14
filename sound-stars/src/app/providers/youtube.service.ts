@@ -13,7 +13,7 @@ export class YoutubeService {
   private headers = new Headers({ 'Content-Type': 'application/json' });
   private headerOptions = new RequestOptions({ headers: this.headers });
 
-  MAX_RESULTS :number = 20;
+  MAX_RESULTS :number = 21;
   ORDER :string = 'viewCount';
   PART  :string = 'snippet';
 
@@ -21,7 +21,7 @@ export class YoutubeService {
     private http: Http
   ) { }
 
-  getSearchUrl(keyword) {
+  getSearchUrl(keyword :string) {
     return `${ this.BASE_URL }search?part=${ this.PART }&q=${ keyword }&maxResults=${ this.MAX_RESULTS }&order=${ this.ORDER }&key=${ this.API_KEY }`
   }
 
