@@ -1,14 +1,7 @@
 <div class="row page-home">
     <div class="col ms-12">
         
-        <div class="search form-field form-field--default form-field--lg form-field--has-button ml-auto mr-auto">
-            <input #q (keypress)="pressKeyHandler($event, q.value)" type="search" id="search__input" class="search__input display-block txt-center txt-size-5" name="search__input" placeholder="Procurar banda...">
-            <button type="submit" class="search__button btn btn--info" (click)="this.search(q.value)">
-                <i *ngIf="!loading" class="fas fa-search animation-wiggle--hover"></i>
-                <i *ngIf="loading" class="fas fa-spinner animation-rotate"></i>
-            </button>
-        </div>
-
+        <main-search (triggerSearch)="search($event)"></main-search>
         <feedback-messages [messages]="messages"></feedback-messages>
     </div>
 </div>

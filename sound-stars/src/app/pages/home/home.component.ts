@@ -36,6 +36,10 @@ export class HomeComponent implements OnInit {
     private _serviceYoutube: YoutubeService
   ) { }
 
+  teste(str) {
+    console.log('Output OK ' + str);
+  }
+
   ngOnInit() {
     this.getYoutubeResult('The XX');
   }
@@ -47,6 +51,8 @@ export class HomeComponent implements OnInit {
   }
 
   search( query ) {
+    console.log('>>> QUERY', query);
+
     query = query.trim().toLowerCase();
   
     if ( query === '' ) {
