@@ -1,15 +1,59 @@
 input, select, textarea {
     color: $color-dark;
     font-weight: 700;
-    background-color: $color-light;
-    padding: 0.6rem 1rem 0.4rem 1rem;
+    background-color: $color-lighter;
+    padding: 0.6rem 1rem;
     border: 2px solid darken( $color-light, 5% );
-    @include border-radius();
     @include transition(background .3s, border .3s);
-    
+
     &:focus {
         outline: none;
         border-color: $color-link;
         background-color: lighten($color-light, 10%);
+
+        &::placeholder {
+            color: lighten( $color-muted, 35% );
+        }
+    }
+
+    &::placeholder {
+        color: lighten( $color-muted, 20% );
+        @include transition( color ease-in .3s );
+    }
+
+}
+
+.form-field {
+    position: relative;
+
+    &--default {
+        background-color: $color-lighter;
+        
+        input {
+            color: $color-link-visited;
+        }
+    }
+
+    &--lg {
+        width: 100%;
+        max-width: 600px;
+    }
+    &--has-button {
+        padding-right: 4rem;
+
+        input, select, textarea {
+            width: 100%;
+        }
+
+        a, button {
+            width: 4rem;
+            font-size: 2rem;
+            text-align: center;
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            border-radius: 0;
+        }
     }
 }

@@ -3,21 +3,22 @@
     display: flex;
     flex-direction: column;
     background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
-    @include border-radius($border-radius);
+    border: 0px solid rgba(0,0,0,.125);
+    @include border-radius( $border-radius );
 
-    .card-cover {
+    .card__cover {
         position: relative;
         flex: 1 1 auto;
         overflow: hidden;
-        border-top-left-radius: calc(.25rem - 1px);
-        border-top-right-radius: calc(.25rem - 1px);
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        background-color: $color-darker;
 
         img {
             width: 100%;
-            height: 600px;
+            height: 280px;
             object-fit: cover;
-            object-position: 0 100%;
+            object-position: contain;
         }
 
         .tag {
@@ -27,28 +28,63 @@
         }
     }
 
-    .card-content,
-    .card-action {
+    .card__content,
+    .card__action {
         padding: 1rem;
         flex: 1 1 auto;
     }
 
-    .card-title {
-        color: $color-dark;
+    .card__content {
+        position: relative;
+        padding-bottom: 4rem;
+    }
+
+    .card__title {
         font-size: 1.5rem;
+        height: 60px;
         margin-top: 0.7rem;
         margin-bottom: 1.5rem;
-        display: flex;
-        height: 75px;
-        align-items: center;
+        @include hover-text( $color-link );
+        @include transition( color ease-in .3s );
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        &--primary {
+            color: $color-primary;
+        }
+        &--info {
+            color: $color-info;
+        }
+        &--success {
+            color: $color-success;
+        }
+        &--warning {
+            color: $color-warning;
+        }
+        &--link {
+            color: $color-link;
+        }
+        &--light {
+            color: $color-light;
+        }
+        &--muted {
+            color: $color-muted;
+        }
+        &--dark {
+            color: $color-dark;
+        }
     }
 
-    .card-observation {
-        color: $color-muted;
+    .card__observation {
+        color: lighten( $color-muted, 20% );
         font-size: 0.8rem;
+        font-weight: 700;
     }
 
-    .card-description {
+    .card__description {
         margin-bottom: 1.5rem;
         height: 78px;
         overflow: hidden;
@@ -56,44 +92,50 @@
         align-items: flex-start;
     }
 
-    &.horizontal {
-        &-sm {
-            @include mq($min-width: $sm) {
-                flex-direction: row;
-                
-                .card-cover {
-                    border-top-right-radius: 0;
-                    border-top-left-radius: calc(.25rem - 1px);
-                    border-bottom-left-radius: calc(.25rem - 1px);
-        
-                    @include mq($min-width: $xs) {
-                        min-width: 40%;
-                    }
-        
-                    img {
-                        height: 100%;
-                    }
-                }   
+    .card__author {
+        color: lighten( $color-muted, 20% );
+        font-size: 0.8rem;
+        font-weight: 700;
+    }
 
-                .card-content {
-                    position: relative;
-                    padding-bottom: 4rem;
+    &.card--horizontal {
+        @include mq($min-width: $sm) {
+            flex-direction: row;
+            height: 240px;
+            
+            .card__cover {
+                border-top-right-radius: 0;
+    
+                @include mq($min-width: $xs) {
+                    width: 360px;
+                    min-width: 360px;
+                    flex-grow: 0;
+                }
+    
+                img {
+                    height: 100%;
+                    object-position: center;
+                }
+            }   
 
-                    .actions {
-                        padding: 1rem;
-                        bottom: 0;
-                        @include absolute-center('horizontal');
-                    }
+            .card__content {
+                position: relative;
+                padding-bottom: 4rem;
+
+                .card__actions {
+                    padding: 1rem;
+                    bottom: 0;
+                    @include absolute-center('horizontal');
                 }
             }
         }
     }
 
-    &.detail {
-        .card-title {
+    &.card__detail {
+        .card__title {
             font-size: 2rem;
         }
-        .card-subtitle {
+        .card__subtitle {
             font-size: 1.5rem;
             margin-top: 2rem;
             margin-bottom: 0.5rem;
@@ -101,47 +143,48 @@
 
     }
 
-    &.default {
+    // Modifiers
+    &.card--default {
         color: $color-dark;
         background-color: $color-light;
     }
-    &.primary {
+    &.card--primary {
         color: $color-light;
         background-color: $color-primary;
     }
-    &.secondary {
+    &.card--secondary {
         color: $color-light;
         background-color: $color-secondary;
     }
-    &.info {
+    &.card--info {
         color: $color-light;
         background-color: $color-info;
     }
-    &.success {
+    &.card--success {
         color: $color-light;
         background-color: $color-success;
     }
-    &.warning {
+    &.card--warning {
         color: $color-light;
         background-color: $color-warning;
     }
-    &.danger {
+    &.card--danger {
         color: $color-light;
         background-color: $color-danger;
     }
-    &.link {
+    &.card--link {
         color: $color-light;
         background-color: $color-link;
     }
-    &.light {
+    &.card--light {
         color: $color-dark;
         background-color: $color-light;
     }
-    &.muted {
+    &.card--muted {
         color: $color-dark;
         background-color: $color-muted;
     }
-    &.dark {
+    &.card--dark {
         color: $color-light;
         background-color: $color-dark;
     }

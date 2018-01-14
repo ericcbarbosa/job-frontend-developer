@@ -1,0 +1,36 @@
+
+<h1 class="txt-center txt-bold">
+    <i class="fas fa-star txt-color-warning display-block mb-2 animation-wiggle--hover"></i>
+    {{ title }}
+</h1>
+
+<div *ngIf="!loading">
+    <h2 class="txt-bold mb-3">
+        {{ video.title }}
+    </h2>
+    <p class="txt-size-4">
+        {{ video.description }}
+    </p>
+    
+    <div class="row">
+        <div class="col ms-12 xs-6 md-4 flex-strech">
+            <card-video [video]="video"></card-video>
+        </div>
+    </div>
+    
+    
+    <div class="card card--default card--detail card--horizontal">
+        <div class="card__cover">
+            <img src="{{ video.thumbnails.high.url }}" alt="" class="img-full img-block">
+        </div>
+        <div class="card__content">
+            <span class="card__observation">Publication Date: {{ video.publishedAt | date:'dd/MM/yyyy' }}</span>
+            <h3 class="card__title">{{ video.title }}</h3>
+            <p class="card__description txt-color-muted">
+                {{ (video.description) ? video.description : 'No description provided.' }}
+            </p>
+            
+        </div>
+    </div>
+    
+</div>

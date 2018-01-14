@@ -15,7 +15,7 @@
         margin-left: 0.5rem;
     }
 
-    &.block {
+    &.btn--block {
         display: block;
 
         + .btn {
@@ -24,55 +24,55 @@
         }
     }
 
-    &.left {
+    &.btn--left {
         float: left;
     }
 
-    &.right {
+    &.btn--right {
         float: right;
     }
 
-    &.default {
+    &.btn--default {
         color: $color-primary;
         background-color: $color-light;
     }
-    &.primary {
+    &.btn--primary {
         color: $color-lighter;
         background-color: $color-primary;
 
         @include hover($color-primary);
     }
-    &.secondary {
+    &.btn--secondary {
         color: $color-lighter;
         background-color: $color-secondary;
         
         @include hover($color-secondary);
     }
-    &.info {
+    &.btn--info {
         color: $color-lighter;
         background-color: $color-info;
         
         @include hover($color-info);
     }
-    &.success {
+    &.btn--success {
         color: $color-lighter;
         background-color: $color-success;
         
         @include hover($color-success);
     }
-    &.warning {
+    &.btn--warning {
         color: $color-lighter;
         background-color: $color-warning;
         
         @include hover($color-warning);
     }
-    &.danger {
+    &.btn--danger {
         color: $color-lighter;
         background-color: $color-danger;
         
         @include hover($color-danger);
     }
-    &.link {
+    &.btn--link {
         color: $color-link;
         background-color: transparent;
 
@@ -80,19 +80,19 @@
             text-decoration: underline;
         }
     }
-    &.lighter {
+    &.btn--lighter {
         color: $color-dark;
         background-color: $color-lighter;
         
         @include hover($color-lighter);
     }
-    &.muted {
+    &.btn--muted {
         color: $color-dark;
         background-color: $color-light;
         
         @include hover($color-muted);
     }
-    &.dark {
+    &.btn--dark {
         color: $color-lighter;
         background-color: $color-dark;
         
@@ -100,6 +100,6 @@
     }
 }
 
-.nav-link {
+.nav__link {
     @extend .btn;
 }

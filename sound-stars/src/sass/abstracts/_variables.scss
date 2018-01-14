@@ -11,14 +11,16 @@ $mm: 390px;
 $ms: 320px;
 
 $max-width: $lg;
-
 $grid-columns: 12;
+
 $marvel-red: hsl(357, 88%, 51%);
 $black: hsl(0, 0%, 0%);
 $white: hsl(0, 0%, 100%);
 $gray-light: hsl(0, 2%, 95%);
 $gray: hsl(0, 0%, 57%);
 $gray-dark: hsl(0, 0%, 20%);
+$almost-black: hsl(0, 2%, 10%);
+$deep-blue: hsl(201, 89%, 15%);
 
 // Colors:
 $color-primary: $marvel-red;
@@ -34,13 +36,15 @@ $color-link-visited: hsl(217, 54%, 38%);
 $color-lighter: $white;
 $color-light: $gray-light;
 $color-muted: $gray;
-$color-dark: $gray-dark;
+$color-dark: $almost-black;
 $color-darker: $black;
 
 // Fonts:
-$font-primary: 'Cabin', sans-serif;
-$font-highlight: 'Oswald', sans-serif;
+$font-primary: 'Roboto', calibri, arial;
+$font-highlight: 'Montserrat', sans-serif;
 
+$body-txt-color: $white;
+$body-bg-color: $deep-blue;
 $body-family: $font-primary;
 $body-font-size: 16px;
 

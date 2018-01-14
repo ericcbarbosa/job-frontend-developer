@@ -46,6 +46,25 @@
     @include css3-prefix('animation', $str);
 }
 
+@mixin text-shadow($str) {
+    @include css3-prefix('text-shadow', $str);
+}
+
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+      @content; 
+    }
+    @-moz-keyframes #{$name} {
+      @content;
+    }
+    @-ms-keyframes #{$name} {
+      @content;
+    }
+    @keyframes #{$name} {
+      @content;
+    } 
+  }
+
 // --------------------------------------------------
 // Flexbox SASS mixins
 // The spec: http://www.w3.org/TR/css3-flexbox
@@ -320,6 +339,19 @@
     }
     &:active {
         background-color: darken($bg-color, 20%);
+    }
+}
+
+@mixin hover-text($txt-color) {
+    @include transition(background .2s);
+    &:visited {
+        color: desaturate($txt-color, 20%);
+    }
+    &:hover {
+        color: darken($txt-color, 10%);
+    }
+    &:active {
+        color: darken($txt-color, 20%);
     }
 }
 

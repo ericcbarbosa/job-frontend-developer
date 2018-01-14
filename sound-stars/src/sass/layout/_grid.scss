@@ -2,7 +2,7 @@
     @include margin-lr(-1rem);
     display: flex;  
     flex-flow: row wrap;
-    justify-content: center;
+    justify-content: left;
     align-content: flex-start;
     margin-bottom: 1rem;
     
@@ -13,7 +13,7 @@
     
     .col {
         flex-basis: 1;
-        flex-grow: 1;
+        flex-grow: 0;
         flex-direction: column;
         margin-bottom: 2rem;
         @include padding-lr(1rem);
@@ -76,4 +76,12 @@
 
 .flex-align-start {
     align-items: flex-start;
+}
+
+.flex-strech {
+    align-items: stretch;
+
+    > div {
+        height: 100%;
+    }
 }

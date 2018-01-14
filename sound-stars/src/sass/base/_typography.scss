@@ -72,3 +72,17 @@ h4, h5, h6 {
 
 .txt-font-primary { font-family: $font-primary; }
 .txt-font-highlight { font-family: $font-highlight; }
+
+.txt-ellipsis-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.txt-ellipsis-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
