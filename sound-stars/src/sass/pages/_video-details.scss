@@ -2,6 +2,7 @@
     @include mq( $max-width: $md) {
         .video-wrapper {
             margin-bottom: 0;
+            word-wrap: break-word;
         }
     }
 }

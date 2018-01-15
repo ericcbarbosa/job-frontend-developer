@@ -1,6 +1,8 @@
 <div class="card card--dark">
     <div class="card__cover">
-        <img class="img-full img-block" src="{{ video?.thumbnails.high.url }}" />
+        <a [routerLink]="['/video', video.query, video.id]">
+            <img class="img-full img-block" src="{{ video?.thumbnails.high.url }}" />
+        </a>
     </div>
     <div class="card__content">
         <small class="card__observation card__author fl-right">
