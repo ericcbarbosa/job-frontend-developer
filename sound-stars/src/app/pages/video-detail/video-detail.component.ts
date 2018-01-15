@@ -26,12 +26,12 @@ export class VideoDetailComponent implements OnInit {
   subtitle :string = '';
 
   // Youtube
-  video :object;
+  video :any;
 
   // TicketMaster
-  page :object;
+  page :any;
   attractions :Array<object>;
-  artist :object;
+  artist :any;
 
   constructor(
     private route: ActivatedRoute,

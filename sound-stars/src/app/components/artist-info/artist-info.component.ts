@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ArtistInfoComponent implements OnInit {
 
-  @Input() artist :object;
+  @Input() artist :any;
 
   constructor() { }
 

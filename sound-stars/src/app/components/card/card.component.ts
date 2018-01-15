@@ -7,7 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
-  @Input() video :object;
+  @Input() video :any;
+  noDescription :string = 'Ops, nenhuma descrição foi fornecida.';
 
   constructor() { }
 

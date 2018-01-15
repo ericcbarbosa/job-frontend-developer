@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   noDescription :string = 'Ops, não temos descrição para este item';
 
   // TicketMaster
-  page :object;
+  page :any;
   events :Array<object>;
 
   // Youtube

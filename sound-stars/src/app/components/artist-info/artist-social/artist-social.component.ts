@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ArtistSocialComponent implements OnInit {
 
-  @Input() externalLinks :object;
+  @Input() externalLinks :any;
 
   constructor() { }
 
