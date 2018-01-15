@@ -63,6 +63,10 @@
         @include hover-text( $color-link );
         @include transition( color ease-in .3s );
 
+        @include mq( $max-width: $md ) {
+            height: auto;
+        }
+
         a {
             color: inherit;
             text-decoration: none;
@@ -169,7 +173,6 @@
             margin-top: 2rem;
             margin-bottom: 0.5rem;
         }
-
     }
 
     // Modifiers
