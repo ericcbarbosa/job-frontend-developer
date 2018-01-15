@@ -1,6 +1,6 @@
 <div class="row page-home">
     <div class="col ms-12">
-        <main-search (triggerSearch)="search($event, results)"></main-search>
+        <main-search (triggerSearch)="search($event, results)" [loading]="loading"></main-search>
         <feedback-messages [messages]="messages"></feedback-messages>
     </div>
 </div>

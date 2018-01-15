@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'main-search',
@@ -8,6 +8,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class SearchComponent implements OnInit {
 
   @Output() triggerSearch = new EventEmitter<string>();
+  @Input() loading :boolean;
 
   constructor() { }
 

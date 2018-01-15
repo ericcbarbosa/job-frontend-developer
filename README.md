@@ -18,8 +18,6 @@ Já vem com:
 * Compilador de estilos, nesse caso SASS na sintaxe SCSS
 * Rotas
 
---------------------------------------------
-
 ## [SASS](http://sass-lang.com/):
 
 Assim como o Angular, o `SASS` é a tecnologia com a qual tenho mais afinidade. Oferece diversas possibilidades ao CSS como variaveis, mixins, loopings e a possibilidade de estruturar e gerenciar o código de forma mais escalável.
